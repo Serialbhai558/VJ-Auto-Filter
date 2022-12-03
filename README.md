@@ -2,7 +2,7 @@
   <img src="assets/logo.jpg" alt="Eva Maria Logo">
 </p>
 <h1 align="center">
-  <b>Nataliya Bot</b>
+  <b>Priyanka Bot</b>
 </h1>
 
 ## Deploy
@@ -23,7 +23,7 @@ You can deploy this bot anywhere.
 
 The fastest way to deploy the application is to click the **Deploy to Koyeb** button below.
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/karunatg/nataliya)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/karunatg/priyanka)
 
 
 ## Commands
