@@ -24,8 +24,8 @@ async def start(client, message):
         buttons = [[
                     InlineKeyboardButton('⚚ ΛᎠᎠ MΞ ϮԾ YԾUᏒ GᏒԾUᎮ ⚚', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('⚡MOVIΞS GᏒOUᎮ', url=f'http://t.me/heavenofmovies'),
-                    InlineKeyboardButton('SΞᏒIΞS GᏒOUᎮ⚡', url=f'http://t.me/heavenofseries')
+                    InlineKeyboardButton('⚡MOVIΞS GᏒOUᎮ', url=f'https://t.me/+ZmoLctpXTo8yNjg9'),
+                    InlineKeyboardButton('SΞᏒIΞS GᏒOUᎮ⚡', url=f'https://t.me/+68nCNDklgoZlODI1')
                 ],[
                     InlineKeyboardButton('〄 DC', url=f'https://t.me/Arrowverse24Hour/2179'),
                     InlineKeyboardButton('⍟ MCU', url=f'https://t.me/MCU_4K'),
@@ -48,8 +48,8 @@ async def start(client, message):
         buttons = [[
                     InlineKeyboardButton('⚚ ΛᎠᎠ MΞ ϮԾ YԾUᏒ GᏒԾUᎮ ⚚', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('⚡MOVIΞS GᏒOUᎮ', url=f'http://t.me/heavenofmovies'),
-                    InlineKeyboardButton('SΞᏒIΞS GᏒOUᎮ⚡ᴘ', url=f'http://t.me/heavenofseries')
+                    InlineKeyboardButton('⚡MOVIΞS GᏒOUᎮ', url=f'https://t.me/+ZmoLctpXTo8yNjg9'),
+                    InlineKeyboardButton('SΞᏒIΞS GᏒOUᎮ⚡ᴘ', url=f'https://t.me/+68nCNDklgoZlODI1')
                 ],[
                     InlineKeyboardButton('〄 DC', url=f'https://t.me/Arrowverse24Hour/2179'),
                     InlineKeyboardButton('⍟ MCU', url=f'https://t.me/MCU_4K'),
@@ -88,7 +88,7 @@ async def start(client, message):
                 btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**You are not in our Back-up channel given below so you don't get the movie file...\n\nIf you want the movie file, click on the '🍿ᴊᴏɪɴ ᴏᴜʀ ʙᴀᴄᴋ-ᴜᴘ ᴄʜᴀɴɴᴇʟ🍿' button below and join our back-up channel, then click on the '🔄 Try Again' button below...\n\nThen you will get the movie files...**",
+            text="**Please Join Our Update Channel🎗 \n Then Tap On Try Again ⚡ \n You'll Get Your File 🔆**",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode=enums.ParseMode.MARKDOWN
             )
@@ -97,8 +97,8 @@ async def start(client, message):
         buttons = [[
                     InlineKeyboardButton('⚚ ΛᎠᎠ MΞ ϮԾ YԾUᏒ GᏒԾUᎮ ⚚', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('⚡MOVIΞS GᏒOUᎮ', url=f'http://t.me/heavenofmovies'),
-                    InlineKeyboardButton('SΞᏒIΞS GᏒOUᎮ⚡', url=f'http://t.me/heavenofseries')
+                    InlineKeyboardButton('⚡MOVIΞS GᏒOUᎮ', url=f'https://t.me/+ZmoLctpXTo8yNjg9'),
+                    InlineKeyboardButton('SΞᏒIΞS GᏒOUᎮ⚡', url=f'https://t.me/+68nCNDklgoZlODI1')
                 ],[
                     InlineKeyboardButton('〄 DC', url=f'https://t.me/Arrowverse24Hour/2179'),
                     InlineKeyboardButton('⍟ MCU', url=f'https://t.me/MCU_4K'),
@@ -155,10 +155,10 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [
-                          InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
-                          InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                          InlineKeyboardButton('⚡MOVIΞS GᏒOUᎮ', url=f'https://t.me/+ZmoLctpXTo8yNjg9'),
+                          InlineKeyboardButton('SΞᏒIΞS GᏒOUᎮ⚡', url=f'https://t.me/+68nCNDklgoZlODI1')
                        ],[
-                          InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/MrperfectOffcial_bot")
+                          InlineKeyboardButton('🔥 JOIИ UᎮDΛTΞS CHΛИИΞL 🔥', url=CHNL_LNK)
                          ]
                         ]
                     )
@@ -174,10 +174,10 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [
-                          InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
-                          InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                          InlineKeyboardButton('⚡MOVIΞS GᏒOUᎮ', url=f'https://t.me/+ZmoLctpXTo8yNjg9'),
+                          InlineKeyboardButton('SΞᏒIΞS GᏒOUᎮ⚡', url=f'https://t.me/+68nCNDklgoZlODI1')
                        ],[
-                          InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/MrperfectOffcial_bot")
+                          InlineKeyboardButton('🔥 JOIИ UᎮDΛTΞS CHΛИИΞL 🔥', url=CHNL_LNK)
                          ]
                         ]
                     )
@@ -245,10 +245,10 @@ async def start(client, message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                      [
-                      InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
-                      InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                      InlineKeyboardButton('⚡MOVIΞS GᏒOUᎮ', url=f'https://t.me/+ZmoLctpXTo8yNjg9'),
+                      InlineKeyboardButton('SΞᏒIΞS GᏒOUᎮ⚡', url=f'https://t.me/+68nCNDklgoZlODI1')
                    ],[
-                      InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/MrperfectOffcial_bot")
+                      InlineKeyboardButton('🔥 JOIИ UᎮDΛTΞS CHΛИИΞL 🔥', url=CHNL_LNK)
                      ]
                     ]
                 )
@@ -288,10 +288,10 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
              [
-              InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
-              InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+              InlineKeyboardButton('⚡MOVIΞS GᏒOUᎮ', url=f'https://t.me/+ZmoLctpXTo8yNjg9'),
+              InlineKeyboardButton('SΞᏒIΞS GᏒOUᎮ⚡', url=f'https://t.me/+68nCNDklgoZlODI1')
            ],[
-              InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/MrperfectOffcial_bot")
+              InlineKeyboardButton('🔥 JOIИ UᎮDΛTΞS CHΛИИΞL 🔥', url=CHNL_LNK)
              ]
             ]
         )
