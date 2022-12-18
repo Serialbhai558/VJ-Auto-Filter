@@ -8,7 +8,7 @@ from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.users_chats_db import db
-from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, CHNL_LNK, GRP_LNK, REQST_CHANNEL, SUPPORT_CHAT_ID
+from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, CHNL_LNK, GRP_LNK, REQST_CHANNEL, SUPPORT_CHAT_ID, MAX_B_TN
 from utils import get_settings, get_size, is_subscribed, save_group_settings, temp
 from database.connections_mdb import active_connection
 import re
@@ -452,15 +452,11 @@ async def settings(client, message):
     
     settings = await get_settings(grp_id)
     try:
-        if settings['auto_ffilter']:
+        if settings['max_btn']:
             settings = await get_settings(grp_id)
     except KeyError:
-        await save_group_settings(grp_id, 'auto_ffilter', True)
-    try:
-        if settings['auto_delete']:
-            settings = await get_settings(grp_id)
-    except KeyError:
-        await save_group_settings(grp_id, 'auto_delete', True)
+        await save_group_settings(grp_id, 'max_btn', False)
+        settings = await get_settings(grp_id)
 
     if settings is not None:
         buttons = [
@@ -542,6 +538,16 @@ async def settings(client, message):
                 InlineKeyboardButton(
                     '✔ Oɴ' if settings["auto_ffilter"] else '✘ Oғғ',
                     callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    'Mᴀx Bᴜᴛᴛᴏɴs',
+                    callback_data=f'setgs#max_btn#{settings["max_btn"]}#{grp_id}',
+                ),
+                InlineKeyboardButton(
+                    '10' if settings["max_btn"] else f'{MAX_B_TN}',
+                    callback_data=f'setgs#max_btn#{settings["max_btn"]}#{grp_id}',
                 ),
             ],
         ]
@@ -723,3 +729,28 @@ async def send_msg(bot, message):
             await message.reply_text(f"<b>Error: {e}</b>")
     else:
         await message.reply_text("<b>Use this command as a reply to any message using the target chat id. For eg: /send userid</b>")
+
+@Client.on_message(filters.command("deletefiles") & filters.user(ADMINS))
+async def deletemultiplefiles(bot, message):
+    chat_id = await active_connection(str(message.from_user.id))
+    settings = await get_settings(chat_id)
+    try:
+        if settings['max_btn']:
+            dlt_num = str(10)
+        else:
+            dlt_num = str(MAX_B_TN)
+    except KeyError:
+        await save_group_settings(chat_id, 'max_btn', False)
+        settings = await get_settings(chat_id)
+        if settings['max_btn']:
+            dlt_num = str(10)
+        else:
+            dlt_num = str(MAX_B_TN)
+    btn = [[
+            InlineKeyboardButton("Delete PreDVDs", callback_data="predvd"),
+            InlineKeyboardButton("Delete CamRips", callback_data="camrip")
+          ]]
+    await message.reply_text(
+        text=f"<b>Select the type of files you want to delete !\n\nThis will delete {dlt_num} files from the database for the selected type.\n\nTo increase the number of files deleting, Add a variable named MAX_B_TN and give the number as its value.\nNOTE:- Use the minimum number, because this will increase the number of autofilter buttons and the traffic.</b>",
+        reply_markup=InlineKeyboardMarkup(btn)
+    )
