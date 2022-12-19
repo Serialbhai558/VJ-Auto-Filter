@@ -8,5 +8,5 @@ else
 fi
 cd /Priyanka
 pip3 install -U -r requirements.txt
-echo "Starting Nataliya...."
+echo "Starting Priyanka...."
 python3 bot.py
