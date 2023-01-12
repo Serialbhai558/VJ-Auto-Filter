@@ -15,7 +15,7 @@ def is_enabled(value, default):
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ.get('API_ID', '2229357'))
 API_HASH = environ.get('API_HASH', '31f183a5a075fd4996cb8ad59e7b794f')
-BOT_TOKEN = environ.get('BOT_TOKEN', '2062193742:AAEQbg5PG24kRkUpxnwhhXs90q-0P_ZMAws')
+BOT_TOKEN = environ.get('BOT_TOKEN', '1862447115:AAE3_fcP1AMCph8mH6c6nUdXoDKAso-tBKE')
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
@@ -42,14 +42,14 @@ SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(
 NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", True))
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://Karuna:15122000@cluster0.hrtev.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://AutoFilter:Karuna15122000@cluster0.qumeb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # Others
-DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '-1001818118297').split()]
+DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '-1001890570731').split()]
 URL_SHORTNER_WEBSITE = environ.get('URL_SHORTNER_WEBSITE', 'tnlink.in')
-URL_SHORTNER_WEBSITE_API = environ.get('URL_SHORTNER_WEBSITE_API', '56061ff8490e8f854eace469242461072056dd85')
+URL_SHORTNER_WEBSITE_API = environ.get('URL_SHORTNER_WEBSITE_API', '35740dcc6c2a808be526806338ba29f5f759968a')
 PORT = environ.get("PORT", "8080")
 MAX_B_TN = environ.get("MAX_B_TN", "5")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "True")), True)
