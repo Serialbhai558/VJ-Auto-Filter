@@ -159,19 +159,16 @@ Owner Will Update The Movie Within 24Hour"""
 """
 
     NORSLTS = """
-★ #𝗡𝗼𝗥𝗲𝘀𝘂𝗹𝘁𝘀 ★
+★ #Auto_Request ★
 
-𝗜𝗗 <b>: {}</b>
-
-𝗡𝗮𝗺𝗲 <b>: {}</b>
-
-𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
+🔆 <b>Request</b> : 🎗️`{}`🎗️
+♦️ <b>Requested By : {}</b>
+♦️ <b>User ID</b> : `{}` """
 
     CAPTION = """
 🎗<b>[{file_name}](https://t.me/+3cfeesNk_cg3MGQ9)</b>🎗 \n\n🔆 <i><b>Movies Group » [@HeavenOfMovies](https://t.me/+_HgfqNy7N4owNTI1)</i></b> \n🔆 <b><i>Series Group » [@HeavenOfSeries](https://t.me/+UbT__2jSGfgzMGM1)</b></i>"""
 
-    IMDB_TEMPLATE_TXT = """
-<i><b>🎗️ {title} {year} \n━━━━━━━━━━━━━━━━━ \n🎭 Genre › {genres} \n⭐ Rating › {rating} \n•────────────────• \n🔆彡[ @TVSeriesCW ]彡🔆</b> </i>"""
+    IMDB_TEMPLATE_TXT = """<i><b>🎗️ {title} {year} \n━━━━━━━━━━━━━━━━━ \n🎭 Genre › {genres} \n⭐ Rating › {rating} \n♦️ Story › {plot}\n•────────────────• \n🔆彡[ @TVSeriesCW ]彡🔆</b> </i>"""
     
     ALL_FILTERS = """
 <b>Hᴇʏ {}, Tʜᴇsᴇ ᴀʀᴇ ᴍʏ ᴛʜʀᴇᴇ ᴛʏᴘᴇs ᴏғ ғɪʟᴛᴇʀs.</b>"""
