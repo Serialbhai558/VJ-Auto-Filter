@@ -122,7 +122,7 @@ Nᴀᴍᴇ - {}"""
 
     TOP_ALRT_MSG = """Cʜᴇᴄᴋɪɴɢ Fᴏʀ Mᴏᴠɪᴇ Iɴ 1 Million Dᴀᴛᴀʙᴀsᴇ..."""
 
-    MELCOW_ENG = """<b><i>🔆 Hey {}, Welcome To {}. You Can Request Any Movies, Web-Series, Anime, K-Dramas, Animation, etc., Here....</i></b>"""
+    MELCOW_ENG = """<b><i>🔆 Hey {}, Welcome To {} \n\nYou Can Request Any Movies, Web-Series, Anime, K-Dramas, Animation Here....</i></b>"""
 
     OWNER_INFO = """
 <b>⍟───[ ᴏᴡɴᴇʀ ᴅᴇᴛᴀɪʟꜱ ]───⍟
