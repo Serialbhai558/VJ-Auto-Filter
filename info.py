@@ -1,6 +1,14 @@
 import re
+import os
 from os import environ
-from Script import script 
+from pyrogram import enums
+from Script import script
+
+import asyncio
+import json
+from collections import defaultdict
+from typing import Dict, List, Union
+from pyrogram import Client
 
 id_pattern = re.compile(r'^.\d+$')
 def is_enabled(value, default):
@@ -11,70 +19,105 @@ def is_enabled(value, default):
     else:
         return default
 
+class evamaria(Client):
+    filterstore: Dict[str, Dict[str, str]] = defaultdict(dict)
+    warndatastore: Dict[
+        str, Dict[str, Union[str, int, List[str]]]
+    ] = defaultdict(dict)
+    warnsettingsstore: Dict[str, str] = defaultdict(dict)
+
+    def __init__(self):
+        name = self.__class__.__name__.lower()
+        super().__init__(
+            ":memory:",
+            plugins=dict(root=f"{name}/plugins"),
+            workdir=TMP_DOWNLOAD_DIRECTORY,
+            api_id=APP_ID,
+            api_hash=API_HASH,
+            bot_token=BOT_TOKEN,
+            parse_mode=enums.ParseMode.HTML,
+            sleep_threshold=60
+        )
+
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ.get('API_ID', '2229357'))
-API_HASH = environ.get('API_HASH', '31f183a5a075fd4996cb8ad59e7b794f')
-BOT_TOKEN = environ.get('BOT_TOKEN', '2062193742:AAEQbg5PG24kRkUpxnwhhXs90q-0P_ZMAws')
+API_ID = int(environ['API_ID'])
+API_HASH = environ['API_HASH']
+BOT_TOKEN = environ['BOT_TOKEN']
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
-USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
+USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
+PICS = (environ.get('PICS', 'https://telegra.ph/file/2992a480cae2bc0de1c39.jpg https://telegra.ph/file/76e7b5e94430b84a3d2b2.jpg https://telegra.ph/file/3544a8773740b0412c9dd.jpg https://telegra.ph/file/4b1c7004ea8bd3fed8df9.jpg https://telegra.ph/file/a02e47d932adc336740fa.jpg')).split()
+NOR_IMG = environ.get('NOR_IMG', "https://telegra.ph/file/7d7cbf0d6c39dc5a05f5a.jpg")
+SPELL_IMG = environ.get('SPELL_IMG',"https://telegra.ph/file/b58f576fed14cd645d2cf.jpg")
 
-PICS = (environ.get('PICS', 'https://te.legra.ph/file/adf86e15ab3ca523c1a45.jpg https://te.legra.ph/file/135037671067393008d51.jpg https://te.legra.ph/file/fd08afd67c52b118b1fda.jpg https://te.legra.ph/file/7034913b54265276b8b33.jpg https://te.legra.ph/file/c009bc7f71bd3f0e90d91.jpg https://te.legra.ph/file/9e35ede2d9b7bffcadd13.jpg https://te.legra.ph/file/c87d6aa97c29096d3b0f2.jpg  https://te.legra.ph/file/f6389cd23eff57753227b.jpg https://te.legra.ph/file/e214c8972725c377c6534.jpg https://te.legra.ph/file/e214c8972725c377c6534.jpg  https://te.legra.ph/file/7c30e62257be4f45a937f.jpg https://te.legra.ph/file/80aba901626d015f3ff2e.jpg https://te.legra.ph/file/4c9468ba84b3fff28292e.jpg https://te.legra.ph/file/586cb2f3fb5f4b4dd15b2.jpg https://te.legra.ph/file/9b287f3beb74be51d3e31.jpg https://te.legra.ph/file/9e9ffe63964839ef04f6a.jpg https://te.legra.ph/file/fada2609719f354084c55.jpg https://te.legra.ph/file/029ed97a0035e12df883d.jpg https://te.legra.ph/file/bd7b8dec9707bdfa9684a.jpg https://te.legra.ph/file/130aa04cc73692b473b85.jpg https://te.legra.ph/file/5b078a0fbd493e5dfe64e.jpg https://te.legra.ph/file/cb96aa590c9a5cccb1127.jpg https://te.legra.ph/file/ed2b5a28880357b1b86e1.jpg https://te.legra.ph/file/f23eb6239acf00757765a.jpg https://te.legra.ph/file/1b92a0ed03f31a98b25f9.jpg https://te.legra.ph/file/dfe55f9e41dbdc5384dc0.jpg https://te.legra.ph/file/273152d981d795f1ce8fb.jpg https://te.legra.ph/file/5ccf81ce5ea0ab1b7af7f.jpg https://te.legra.ph/file/fae5defe1927b8171c536.jpg')).split()
-NOR_IMG = environ.get("NOR_IMG", "https://te.legra.ph/file/c4fd9a3e87088868bbff5.jpg")
-MELCOW_VID = environ.get("MELCOW_VID", "https://te.legra.ph/file/364204ddcd64180a7c7dc.mp4")
-SPELL_IMG = environ.get("SPELL_IMG", "https://telegra.ph/file/229b746a9efacb4245b53.jpg")
+# Welcome area
+MELCOW_IMG = environ.get('MELCOW_IMG',"https://telegra.ph/file/e54cae941b9b81f13eb71.jpg")
+MELCOW_VID = environ.get('MELCOW_VID',"")
+
+
 
 # Admins, Channels & Users
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '794968418').split()]
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '').split()]
-auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '1270873344 5232414179 794968418 5290038359 885767886').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
+auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
 auth_channel = environ.get('AUTH_CHANNEL')
 auth_grp = environ.get('AUTH_GROUP')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
-support_chat_id = environ.get('SUPPORT_CHAT_ID', "")
-reqst_channel = environ.get('REQST_CHANNEL_ID', "")
-REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
-SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
-NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", True))
+support_chat_id = environ.get('SUPPORT_CHAT_ID')
+# This is required for the plugins involving the file system.
+TMP_DOWNLOAD_DIRECTORY = environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
+
+# Command
+COMMAND_HAND_LER = environ.get("COMMAND_HAND_LER", "/")
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://Karuna:15122000@cluster0.hrtev.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster")
+DATABASE_URI = environ.get('DATABASE_URI', "")
+DATABASE_NAME = environ.get('DATABASE_NAME', "Elsa")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
+MONGO_URL = os.environ.get('MONGO_URL', "")
+
+#Downloader
+DOWNLOAD_LOCATION = environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/AudioBoT/")
+
+#url links
+SHORTLINK_URL = environ.get('SHORTLINK_URL', 'shorturllink.in')
+SHORTLINK_API = environ.get('SHORTLINK_API', '3a3935e37c74a2384f7a689c414f078ab6320785')
+IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', False))
+
+#Auto approve 
+#In private group or channel must enable request admin approval 
+CHAT_ID = [int(app_chat_id) if id_pattern.search(app_chat_id) else app_chat_id for app_chat_id in environ.get('CHAT_ID', '0').split()]
+TEXT = environ.get("APPROVED_WELCOME_TEXT", "Hello {mention}\nWelcome To {title}\n\nYour request has been approved")
+APPROVED = environ.get("APPROVED_WELCOME", "on").lower()
 
 # Others
-
-VERIFY = bool(environ.get('VERIFY', True))
-SHORTLINK_URL = environ.get('SHORTLINK_URL', 'tnlink.in')
-SHORTLINK_API = environ.get('SHORTLINK_API', '56061ff8490e8f854eace469242461072056dd85')
-IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', True))
-DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '-1001818118297').split()]
-PORT = environ.get("PORT", "8080")
-MAX_B_TN = environ.get("MAX_B_TN", "5")
-MAX_BTN = is_enabled((environ.get('MAX_BTN', "True")), True)
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/+CuTT-clY8GQ5ZWE9')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/TVSeriesCW')
-MSG_ALRT = environ.get('MSG_ALRT', '🚩 @TVSeriesCW Best Channel In Telegram')
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001500025641'))
-REQUEST_LOGS = int(environ.get('REQUEST_LOGS', '-1001820924316'))
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'tvseriescw_group')
-P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "True")), True)
-IMDB = is_enabled((environ.get('IMDB', "False")), False)
-AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
+SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
+DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
+PORT = os.environ.get("PORT", "8080")
+MAX_BTN = int(environ.get('MAX_BTN', "7"))
+S_GROUP = environ.get('S_GROUP',"https://t.me/Elsasupportgp")
+MAIN_CHANNEL = environ.get('MAIN_CHANNEL',"https://t.me/+1iWSCrpI_083MDM1")
+FILE_FORWARD = environ.get('FILE_FORWARD',"https://t.me/+1dbVg9pA2GphZmI1")
+MSG_ALRT = environ.get('MSG_ALRT', '𝑪𝑯𝑬𝑪𝑲 & 𝑻𝑹𝒀 𝑨𝑳𝑳 𝑴𝒀 𝑭𝑬𝑨𝑻𝑼𝑹𝑬𝑺')
+FILE_CHANNEL = int(environ.get('FILE_CHANNEL', 0))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', 0))
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'Elsasupportgp')
 AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "True")), True)
-SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), True)
-CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", f"{script.CAPTION}")
+P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
+IMDB = is_enabled((environ.get('IMDB', "True")), True)
+SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "False")), False)
+CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", f"{script.CUSTOM_FILE_CAPTION}")
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
 IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", f"{script.IMDB_TEMPLATE_TXT}")
 LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
 SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "True"), True)
 MAX_LIST_ELM = environ.get("MAX_LIST_ELM", None)
 INDEX_REQ_CHANNEL = int(environ.get('INDEX_REQ_CHANNEL', LOG_CHANNEL))
-FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '-1001500025641')).split()]
+FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '')).split()]
 MELCOW_NEW_USERS = is_enabled((environ.get('MELCOW_NEW_USERS', "True")), True)
 PROTECT_CONTENT = is_enabled((environ.get('PROTECT_CONTENT', "False")), False)
 PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "True")), True)
