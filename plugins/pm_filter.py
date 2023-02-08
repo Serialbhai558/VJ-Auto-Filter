@@ -1577,7 +1577,7 @@ async def advantage_spell_chok(client, msg):
         button = [[
                    InlineKeyboardButton("Search Spelling In Google", url=f"https://www.google.com/search?q={reqst_gle}")
         ]]
-        await client.send_message(chat_id=REQUEST_LOGS, text=(script.NORSLTS.format(mv_rqst, reqstr.mention, reqstr.id)))
+        await client.send_message(chat_id=REQUEST_LOGS, text=(script.NORSLTS.format(reqstr.id, reqstr.mention, mv_rqst)))
         k = await msg.reply_photo(
             photo=SPELL_IMG, 
             caption=script.I_CUDNT.format(mv_rqst),
