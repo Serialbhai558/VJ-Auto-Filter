@@ -565,8 +565,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                         reply_markup=InlineKeyboardMarkup(
                             [
                              [
-                              InlineKeyboardButton('⚡MOVIΞS GᏒOUᎮ', url=f'https://t.me/+ZmoLctpXTo8yNjg9'),
-                              InlineKeyboardButton('SΞᏒIΞS GᏒOUᎮ⚡', url=f'https://t.me/+68nCNDklgoZlODI1')
+                              InlineKeyboardButton('⚡MOVIΞS GᏒOUᎮ', url=f'https://t.me/Neha_Movie_Request'),
+                              InlineKeyboardButton('SΞᏒIΞS GᏒOUᎮ⚡', url=f'https://t.me/Neha_Movie_Request')
                            ],[
                               InlineKeyboardButton('🔥 JOIИ UᎮDΛTΞS CHΛИИΞL 🔥', url=CHNL_LNK)
                              ]
@@ -616,7 +616,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                   InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
                   InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
                ],[
-                  InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/MrperfectOffcial_bot")
+                  InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/vj_bots__bot")
                  ]
                 ]
             )
@@ -917,16 +917,32 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "start":
         buttons = [[
-                    InlineKeyboardButton('⚚ ΛᎠᎠ MΞ ϮԾ YԾUᏒ GᏒԾUᎮ ⚚', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                ],[
-                    InlineKeyboardButton('⚡MOVIΞS GᏒOUᎮ', url=f'https://t.me/+ZmoLctpXTo8yNjg9'),
-                    InlineKeyboardButton('SΞᏒIΞS GᏒOUᎮ⚡', url=f'https://t.me/+68nCNDklgoZlODI1')
-                ],[
-                    InlineKeyboardButton('〄 DC', url=f'https://t.me/Arrowverse24Hour/2179'),
-                    InlineKeyboardButton('⍟ MCU', url=f'https://t.me/MCU_4K'),
-                    InlineKeyboardButton('VIᎮ SΞΛᏒCH ☌', switch_inline_query_current_chat='')
-                ],[
-                    InlineKeyboardButton('🔥 JOIИ UᎮDΛTΞS CHΛИИΞL 🔥', url=CHNL_LNK)
+                    InlineKeyboardButton('➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘs ➕',
+                                 url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+        ], [
+            InlineKeyboardButton(
+                '🔍 ɢʀᴏᴜᴘ 🔍', url='https://t.me/neha_movie_request'),
+            InlineKeyboardButton(
+                '🤖 ᴜᴘᴅᴀᴛᴇs', url='https://t.me/VJ_Bots')
+        ], [
+            InlineKeyboardButton('📚 ʜᴇʟᴘ', callback_data='help'),
+            InlineKeyboardButton('ᴀʙᴏᴜᴛ 🌐', callback_data='about')
+        ], [
+            InlineKeyboardButton('sᴜʙsᴄʀɪʙᴇ ʏᴏᴜ ᴛᴜʙᴇ',
+                                 url=f'https://youtube.com/@movietimeguru6265')
+                  ]]InlineKeyboardButton('➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘs ➕',
+                                 url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+        ], [
+            InlineKeyboardButton(
+                '🔍 ɢʀᴏᴜᴘ 🔍', url='https://t.me/neha_movie_request'),
+            InlineKeyboardButton(
+                '🤖 ᴜᴘᴅᴀᴛᴇs', url='https://t.me/VJ_Bots')
+        ], [
+            InlineKeyboardButton('📚 ʜᴇʟᴘ', callback_data='help'),
+            InlineKeyboardButton('ᴀʙᴏᴜᴛ 🌐', callback_data='about')
+        ], [
+            InlineKeyboardButton('sᴜʙsᴄʀɪʙᴇ ʏᴏᴜ ᴛᴜʙᴇ',
+                                 url=f'https://youtube.com/@movietimeguru6265')
                   ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
