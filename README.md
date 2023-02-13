@@ -1,18 +1,6 @@
-<p align="center">
-  <img src="https://telegra.ph/file/930ff28f8e22e70b00cfa.jpg" alt="Devil Botz">
-</p>
 <h1 align="center">
-  <b>Elsa</b>
+  <b>VJ Bots</b>
 </h1>
-
-<p align="center">
-    <img src="https://img.shields.io/github/license/Devil-Botz/Elsa?style=for-the-badge&logo=appveyor" alt="LICENSE" >
-    <img src="https://img.shields.io/github/contributors/Devil-Botz/Elsa?style=for-the-badge&logo=appveyor" alt="Contributors">
-    <img src="https://img.shields.io/github/repo-size/Devil-Botz/Elsa?style=for-the-badge&logo=appveyor" alt="Repository Size"> <br>
-    <img src="https://img.shields.io/github/issues/Devil-Botz/Elsa?style=for-the-badge&logo=appveyor" alt="Issues">
-    <img src="https://img.shields.io/github/forks/Devil-Botz/Elsa?style=for-the-badge&logo=appveyor" alt="Forks">
-    <img src="https://img.shields.io/github/stars/Devil-Botz/Elsa?style=for-the-badge&logo=appveyor" alt="Stars">
-</p>
 
 ## Features
 
@@ -29,7 +17,7 @@
 - [x] Stats, Users, Chats
 - [x] Spelling Check Feature
 - [x] File Store
-- [x] 📂 PM & Channel 
+- [x] PM & Channel 
 - [x] Auto delete
 - [x] 2GB+File Support
 - [x] song video download
@@ -64,14 +52,7 @@
 ## Credits
 <details>
 
- Thanks To [Mahesh](https://github.com/Mahesh0253/Media-Search-bot) MediaSearch
-
- Thanks To [Subinps](https://github.com/subinps/Media-Search-bot) AutoFilter & Base repo
- 
- Thanks To [Joelkb](https://github.com/Joelkb) Collaborator [Add Redirect feature,Error fixed, Add new features]
-
- Thanks To [Devil-Botz](https://github.com/Devil-Botz) Owner,Add more features 
-
+ Thanks To [VJ](https://telegram.dog/vj_bots)
 
 </details>
 
@@ -117,6 +98,7 @@ python3 bot.py
 ## Commands
 
 ```
+* /shortlink - To add Shortner website and api (admins)
 * /logs - to get the rescent errors
 * /stats - to get status of files in db.
 * /filter - add manual filters
@@ -139,10 +121,9 @@ python3 bot.py
 * /font - fonts for your text
 * /deletefiles - PreDvD CamRip deletion
 ```
-<b> 😇CREATOR » [Aswin](https://t.me/Aswin_pm_Bot)</b>
+<b> 😇CREATOR » [VJ](https://telegram.dog/vj_bots_Bot)</b>
 
 ## Disclaimer
 [![GNU Affero General Public License 2.0](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html#header)    
-Licensed under [GNU AGPL 2.0.](https://github.com/Devil-Botz/Elsa-V3/blob/main/LICENSE)
 Selling The Codes To Other People For Money Is *Strictly Prohibited*.
 
