@@ -41,7 +41,7 @@ async def save_group(bot, message):
                     InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
                     InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
                  ],[
-                    InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/MrperfectOffcial_bot")
+                    InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/vj_bots__bot")
                   ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
@@ -61,10 +61,10 @@ async def save_group(bot, message):
                                                  caption=(script.MELCOW_ENG.format(u.mention, message.chat.title)),
                                                  reply_markup=InlineKeyboardMarkup(
                                                                          [[
-                                                                           InlineKeyboardButton("🎗️Our Channels", url="t.me/TVSeriesCW/2103"),
-                                                                           InlineKeyboardButton("Request Format🎗️", url="t.me/TVSeriesCW/1378")
+                                                                           InlineKeyboardButton("🎗️Our Channels", url="t.me/vj_bots"),
+                                                                           InlineKeyboardButton("Request Format🎗️", url="https://t.me/Neha_Movie_Request")
                                                                         ],[
-                                                                           InlineKeyboardButton("🔆 VIP & Premium Membership 🔆", url="t.me/MrperfectOffcial/39")
+                                                                           InlineKeyboardButton("🔆 VIP & Premium Membership 🔆", url="t.me/vj_bots__bot")
                                                                          ]]
                                                  ),
                                                  parse_mode=enums.ParseMode.HTML
