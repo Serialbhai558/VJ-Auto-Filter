@@ -32,18 +32,18 @@ class evamaria(Client):
             ":memory:",
             plugins=dict(root=f"{name}/plugins"),
             workdir=TMP_DOWNLOAD_DIRECTORY,
-            api_id=APP_ID,
-            api_hash=API_HASH,
-            bot_token=BOT_TOKEN,
+            api_id=28037792,
+            api_hash=6057e930c3b495c98e979c1df311d6c3,
+            bot_token=6880728627:AAFly5-EWFKnhlSGd0dqkbMGpDoXv8_Sb1c,
             parse_mode=enums.ParseMode.HTML,
             sleep_threshold=60
         )
 
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ['API_ID'])
-API_HASH = environ['API_HASH']
-BOT_TOKEN = environ['BOT_TOKEN']
+API_ID = int(environ['28037792'])
+API_HASH = environ['6057e930c3b495c98e979c1df311d6c3']
+BOT_TOKEN = environ['6880728627:AAFly5-EWFKnhlSGd0dqkbMGpDoXv8_Sb1c']
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
